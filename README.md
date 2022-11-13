@@ -1,5 +1,10 @@
 # Certamen 2
 
+## Modulos usados
+```
+django
+django-bootstrap-v5
+```
 ## Referencias
 
 - <https://docs.djangoproject.com/en/4.1/topics/auth/default/>
