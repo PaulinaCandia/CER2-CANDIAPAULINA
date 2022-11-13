@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Correspondencia{% endblock %}
+
+{% block content %}
+{% if residencias_list %}
+    Listado de residencias:
+    <ul>
+        {% for resi in residencias_list %}
+            <li><a href="{% url 'residencia' resi.id %}">{{ resi }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% if correspondencia_list %}
+    <table>
+        <tr>
+            <th>Residencia</th>
+            <th>Destinatario</th>
+            <th>Fecha</th>
+        </tr>
+        {% for corresp in correspondencia_list %}
+            <tr>
+                <td>{{ corresp.residencia }}</td>
+                <td>{{ corresp.destinatario }}</td>
+                <td>{{ corresp.fecha }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No hay correspondencia disponible.</p>
+{% endif %}
+{% endblock %}

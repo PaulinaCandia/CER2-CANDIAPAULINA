@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Residencia{% endblock %}
+
+{% block content %}
+{% if residencia_actual %}
+Estás viendo la correspondencia de {{ residencia_actual }}
+{% endif %}
+
+{% if correspondencia_list %}
+    <table>
+        <tr>
+            <th>Residencia</th>
+            <th>Destinatario</th>
+            <th>Fecha</th>
+        </tr>
+        {% for corresp in correspondencia_list %}
+            <tr>
+                <td>{{ corresp.residencia }}</td>
+                <td>{{ corresp.destinatario }}</td>
+                <td>{{ corresp.fecha }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No hay correspondencia disponible.</p>
+{% endif %}
+{% endblock %}
